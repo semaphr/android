@@ -19,3 +19,15 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keepclasseswithmembernames class com.semaphr.Semaphr { *; }
+-keep class com.semaphr.Semaphr { *; }
+-keep class com.semaphr.Semaphr$** { *; }
+-keepclasseswithmembernames class com.semaphr.Semaphr {
+    public <methods>;
+}
+-keep class com.semaphr.Semaphr$Companion { *; }
+
+-keepclassmembers class com.semaphr.Semaphr {
+    public static ** Companion;
+}
