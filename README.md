@@ -63,7 +63,7 @@ After an initial startup, you can go to **Messages** and add a new message, once
 
 ## Examples
 
-You can find examples of how to integrate the codebase using [SPM here](https://github.com/semaphr/ios-examples/tree/main/SPM/SemaphrExample) and [COCOAPODS here](https://github.com/semaphr/ios-examples/tree/main/COCOAPODS/SemaphrExample).
+You can find examples of how to integrate the codebase [here](https://github.com/semaphr/android-examples).
 
 <br />
 <br />
