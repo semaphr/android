@@ -12,7 +12,7 @@ fun Semaphr.Companion.log(string: String) {
     Log.d(tag, string)
 }
 
-class Semaphr {
+public class Semaphr {
 
     companion object {
         val instance = Semaphr()
@@ -30,10 +30,10 @@ class Semaphr {
     // This is used for opening the correct page in the google play store, if this is not
     private lateinit var googlePlayID: String
 
-    lateinit var manager: SemaphrManager
+    private lateinit var manager: SemaphrManager
 
     // Configures the Kil Switch with the API key from the web console
-    fun configure(application: Application, apiKey: String) {
+    public fun configure(application: Application, apiKey: String) {
         this.apiKey = apiKey
         this.application = application
 
@@ -44,8 +44,14 @@ class Semaphr {
         manager.start()
     }
 
+    // Enables the SDK if it was previously disabled
+    public fun enable() {
+        manager.end()
+        manager.start()
+    }
+
     // Disables the SDK, no events will be sent or mesages taken into consideration
-    fun disable() {
+    public fun disable() {
         manager.end()
     }
 
