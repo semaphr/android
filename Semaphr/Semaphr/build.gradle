@@ -6,12 +6,12 @@ plugins {
     id 'kotlin-android'
 }
 
+apply from: 'publish-remote.gradle'
+
 android {
     namespace 'com.semaphr'
     compileSdk 33
 
-    defaultPublishConfig "envProdRelease"
-    //defaultPublishConfig "envDevelopmentDebug"
     publishNonDefault true
 
     defaultConfig {
@@ -72,14 +72,14 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    ext.retrofit = "2.+"
-    ext.okhttp = "4.+"
+    ext.retrofit = "[2.0,)"
+    ext.okhttp = "[4.0,)"
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation 'com.google.code.gson:gson:2.+'
+    implementation 'com.google.code.gson:gson:[2.0,)'
     implementation "com.squareup.okhttp3:okhttp:$okhttp"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
 
-    implementation "androidx.lifecycle:lifecycle-process:2.+"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.+'
+    implementation "androidx.lifecycle:lifecycle-process:[2.0,)"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:[2.0,)'
 }
