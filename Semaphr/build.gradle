@@ -10,6 +10,6 @@ apply from: 'scripts/publish-root.gradle'
 
 ext {
     PUBLISH_GROUP_ID = 'com.semaphr'
-    PUBLISH_VERSION = '1.0.1'
+    PUBLISH_VERSION = '1.0.2'
     PUBLISH_ARTIFACT_ID = 'Semaphr'
 }

@@ -8,7 +8,6 @@ import com.semaphr.model.AppDetails
 import com.semaphr.model.CheckKeysRequest
 import com.semaphr.model.ErrorResponse
 import com.semaphr.model.SemaphrStatus
-import com.semaphr.utils.BBJsonDateTypeAdapterFactory
 import com.semaphr.utils.KSJsonDateTypeAdapterFactory
 import com.semaphr.utils.KSResult
 import okhttp3.*
