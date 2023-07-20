@@ -20,7 +20,7 @@ inline fun <T> tryOptional(expression: () -> T): T? {
     }
 }
 
-class BBJsonDateTypeAdapterFactory : TypeAdapterFactory {
+class KSJsonDateTypeAdapterFactory : TypeAdapterFactory {
     val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.'SSS'Z'", Locale.US)
     val dateFormat2 = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.'SSSSSSS'Z'", Locale.US)
     val dateFormat3 = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US)

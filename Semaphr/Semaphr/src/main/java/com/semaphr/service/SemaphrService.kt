@@ -9,6 +9,7 @@ import com.semaphr.model.CheckKeysRequest
 import com.semaphr.model.ErrorResponse
 import com.semaphr.model.SemaphrStatus
 import com.semaphr.utils.BBJsonDateTypeAdapterFactory
+import com.semaphr.utils.KSJsonDateTypeAdapterFactory
 import com.semaphr.utils.KSResult
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
@@ -84,7 +85,7 @@ class SemaphrService {
 
     private fun getRetrofit(): Retrofit {
         val gson = GsonBuilder().setLenient().registerTypeAdapterFactory(
-            BBJsonDateTypeAdapterFactory()
+            KSJsonDateTypeAdapterFactory()
         ).create()
 
         return Retrofit.Builder()
