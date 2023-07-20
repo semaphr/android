@@ -18,7 +18,7 @@ class SystemMessageOverlayView(context: Context, title: String, message: String,
 
     init {
         binding = LayoutSystemMessageOverlayViewBinding.inflate(LayoutInflater.from(context), this, true)
-        val description = HtmlCompat.fromHtml(message, Html.FROM_HTML_MODE_LEGACY)
+        val description = HtmlCompat.fromHtml(message.replaceLinksWithHtml(), Html.FROM_HTML_MODE_LEGACY)
         binding.titleTextView.text = title
         binding.descriptionTextView.movementMethod = LinkMovementMethod.getInstance()
         binding.descriptionTextView.text = description

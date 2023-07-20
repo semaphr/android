@@ -14,17 +14,36 @@ import android.widget.FrameLayout
 import androidx.core.text.HtmlCompat
 import com.semaphr.databinding.LayoutForceUpdateOverlayViewBinding
 
+fun String.replaceLinksWithHtml(): String {
+    // Regular expression pattern to find URLs in the text
+    val urlPattern = "\\b(?:https?://|www\\.)\\S+\\b".toRegex()
+
+    // Find all URLs using the regular expression
+    val urls = urlPattern.findAll(this).map { it.value }.toList()
+
+    // Replace each URL with an HTML link tag
+    var newText = this
+    for (url in urls) {
+        if (!url.startsWith("http")) {
+            val fixedUrl = "http://$url"
+            newText = newText.replace(url, "<a href=\"$fixedUrl\" target=\"$url\">$url</a>")
+        } else {
+            newText = newText.replace(url, "<a href=\"$url\" target=\"$url\">$url</a>")
+        }
+    }
+
+    return newText
+}
 
 class ForceUpdateOverlayView(context: Context, title: String, message: String) : FrameLayout(context) {
     private var binding: LayoutForceUpdateOverlayViewBinding
 
     init {
         binding = LayoutForceUpdateOverlayViewBinding.inflate(LayoutInflater.from(context), this, true)
-        val description = HtmlCompat.fromHtml(message, Html.FROM_HTML_MODE_LEGACY)
+        val description = HtmlCompat.fromHtml(message.replaceLinksWithHtml(), Html.FROM_HTML_MODE_LEGACY)
         binding.titleTextView.text = title
         binding.descriptionTextView.movementMethod = LinkMovementMethod.getInstance()
         binding.descriptionTextView.text = description
-        binding.closeButton.setOnClickListener { hideOverlay() }
 
         binding.actionButton.setOnClickListener {
             try {
