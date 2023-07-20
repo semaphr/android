@@ -25,7 +25,7 @@
 
 To integrate the SDK using Gradle, add the following dependency to your project:
 ```
-implementation 'com.semaphr:Semaphr:1.0'
+implementation 'com.semaphr:Semaphr:1.+'
 ```
 <br />
 
