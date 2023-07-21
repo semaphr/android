@@ -2,7 +2,7 @@
 plugins {
     id 'com.android.application' version '7.3.1' apply false
     id 'com.android.library' version '7.3.1' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.0' apply false
     id 'io.github.gradle-nexus.publish-plugin' version "1.1.0"
 }
 
@@ -10,6 +10,8 @@ apply from: 'scripts/publish-root.gradle'
 
 ext {
     PUBLISH_GROUP_ID = 'com.semaphr'
-    PUBLISH_VERSION = '1.0.3'
+    PUBLISH_VERSION = '1.0.4'
     PUBLISH_ARTIFACT_ID = 'Semaphr'
+
+    kotlin_version = "1.6.0"
 }

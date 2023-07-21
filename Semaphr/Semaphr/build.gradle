@@ -33,9 +33,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
+        languageVersion = '1.6'
+        apiVersion = '1.6'
         jvmTarget = '1.8'
-        languageVersion = '1.5'
-        apiVersion = '1.5'
     }
 
     flavorDimensions "default"
@@ -67,9 +67,8 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:[1.7,)'
-    implementation 'androidx.appcompat:appcompat:[1.6,)'
-    implementation 'com.google.android.material:material:[1.0,)'
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'com.google.android.material:material:1.2.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -77,11 +76,14 @@ dependencies {
     ext.retrofit = "[2.0,)"
     ext.okhttp = "[4.0,)"
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation 'com.google.code.gson:gson:[2.0,)'
+    implementation 'com.google.code.gson:gson:2.0.0'
     implementation "com.squareup.okhttp3:okhttp:$okhttp"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
 
-    implementation "androidx.lifecycle:lifecycle-process:[2.6,)"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:[2.0,)'
+    implementation "androidx.lifecycle:lifecycle-process:2.5.0"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-core:2.2.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
