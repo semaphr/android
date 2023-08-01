@@ -1,6 +1,6 @@
 # Semaphr
 
-[Semaphr](https://semaphr.com) helps you manage your mobile apps.
+[Semaphr](https://semaphr.com) is an all-in-one kill switch for your mobile apps. With Semaphr, you can force users to update to the latest version of your mobile apps, encourage app updates, or alert them of any issues with the app.
 <br />
 <br />
 
