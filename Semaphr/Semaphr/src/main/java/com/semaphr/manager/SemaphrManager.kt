@@ -26,25 +26,20 @@ class SemaphrManager constructor(private val apiKey: String, application: Applic
     private var currentStatus: MutableLiveData<SemaphrStatus> = MutableLiveData(SemaphrStatus.None())
     private var currentActivity: FragmentActivity? = null
     private var overlayView: WeakReference<FrameLayout> = WeakReference(null)
+    private var isEnabled = true
 
     val semaphrService: SemaphrService = SemaphrService()
     var appDetailsHelper: AppDetailsHelper = AppDetailsHelper(application.applicationContext)
-
-    private val lifecycleObserver: LifecycleObserver = object : DefaultLifecycleObserver {
-
-        override fun onStart(owner: LifecycleOwner) {
-            super.onStart(owner)
-
-            updateStatus()
-        }
-
-    }
 
     private val applicationLifecycleObserver: Application.ActivityLifecycleCallbacks = object : Application.ActivityLifecycleCallbacks {
         override fun onActivityCreated(p0: Activity, p1: Bundle?) {
             currentActivity = p0 as? FragmentActivity
         }
-        override fun onActivityStarted(p0: Activity) {}
+        override fun onActivityStarted(p0: Activity) {
+            if (isEnabled) {
+                updateStatus()
+            }
+        }
         override fun onActivityResumed(p0: Activity) {}
         override fun onActivityPaused(p0: Activity) {}
         override fun onActivityStopped(p0: Activity) {}
@@ -61,7 +56,7 @@ class SemaphrManager constructor(private val apiKey: String, application: Applic
         currentStatus.observeForever {
             when (it) {
                 is SemaphrStatus.Block -> { showBlockMessage(it.title, it.message) }
-                is SemaphrStatus.None -> {}
+                is SemaphrStatus.None -> { hideOverlay() }
                 is SemaphrStatus.Update -> { showUpdateMessage(it.title, it.message, it.dismissable) }
                 is SemaphrStatus.Notify -> { showNotifyMessage(it.title, it.message, it.dismissable) }
             }
@@ -69,11 +64,11 @@ class SemaphrManager constructor(private val apiKey: String, application: Applic
     }
 
     fun start() {
-        ProcessLifecycleOwner.get().lifecycle.addObserver(lifecycleObserver)
+        isEnabled = true
     }
 
     fun end() {
-        ProcessLifecycleOwner.get().lifecycle.removeObserver(lifecycleObserver)
+        isEnabled = false
     }
 
     private fun updateStatus() {

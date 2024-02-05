@@ -72,7 +72,7 @@ class SemaphrService {
             if (response.isSuccessful) {
                 val body = response.body()
                 body?.let {
-                    return KSResult.Success(it)
+                    return KSResult.Success(it.valid)
                 }
             }
 

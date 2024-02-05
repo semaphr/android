@@ -9,7 +9,7 @@ class MainApplication : Application() {
         super.onCreate()
 
         // TODO: Replace with your own API Key
-        val API_KEY = "7c1b9cbf51df8cbeb739c0cfd1421dbdb943adf251e240b87137384e0df08f56208cd610c02075348772acc2a3a28a8867a711c1395b0b2af6e1fd30902f3ed1"
+        val API_KEY = "7d5ba78a2e8314bd199734e88beb96f543516531a403cd049c1b9a8f3d9e69f572315eb12552ddc20334a52a6197f08864214fdf18fd1de99cdfdc946ce662a8"
         Semaphr.configure(this, API_KEY)
     }
 
